@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+part 'message.g.dart';
+
 @JsonSerializable()
 class Message {
   final subject;
