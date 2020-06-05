@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-
+// command --> flutter packages pub run build_runner build
 part 'message.g.dart';
 
 @JsonSerializable()
