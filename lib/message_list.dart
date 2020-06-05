@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MessagesList extends StatefulWidget {
+class MessageList extends StatefulWidget {
   final String title;
-  MessagesList({this.title});
+  MessageList({this.title});
 
   @override
-  _MessagesListState createState() => _MessagesListState();
+  _MessageListState createState() => _MessageListState();
 }
 
-class _MessagesListState extends State<MessagesList> {
+class _MessageListState extends State<MessageList> {
   final messages = [];
 
   @override
