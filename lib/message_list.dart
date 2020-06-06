@@ -17,6 +17,7 @@ class _MessageListState extends State<MessageList> {
   Future loadMessageList() async {
     http.Response response =
         await http.get('http://www.mocky.io/v2/5edb09d83200006f005d2666');
+    await Future.delayed(Duration(seconds: 3));
     String content = response.body;
     // here we are using async await because of late latency and it's huge for computer.
     // we are using load string from rootBundle object for making that json to string.
