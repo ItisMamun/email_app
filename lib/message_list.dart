@@ -79,7 +79,7 @@ class _MessageListState extends State<MessageList> {
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
-                        return MessageDetail();
+                        return MessageDetail(message.subject, message.body);
                       }));
                     },
                   );
