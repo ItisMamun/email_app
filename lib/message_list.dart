@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:email_app/compose_button.dart';
 import 'package:email_app/message.dart';
 import 'package:email_app/message_compose.dart';
 import 'package:email_app/message_detail.dart';
@@ -89,7 +90,7 @@ class _MessageListState extends State<MessageList> {
           return null; // don't know it'll work or not, progress indicator would be better, container
         },
       ),
-      floatingActionButton: MessageCompose(),
+      floatingActionButton: ComposeButton(),
     );
   }
 }
