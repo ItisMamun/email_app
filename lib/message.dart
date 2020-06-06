@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
+import 'package:http/http.dart' as http;
 // command --> flutter packages pub run build_runner build
 part 'message.g.dart';
 
@@ -18,6 +21,16 @@ class Message {
   // : subject = json['subject'],
   // same
   // body = json['body'];
-}
+  static Future<List<Message>> browse() async {
+    http.Response response =
+        await http.get('http://www.mocky.io/v2/5edb09d83200006f005d2666');
+    await Future.delayed(Duration(seconds: 3));
+    String content = response.body;
 
-// yooooooo made it, it's showing on the screen
+    List collection = json.decode(content);
+    List<Message> _messages =
+        collection.map((json) => Message.fromJson(json)).toList();
+
+    return _messages;
+  }
+}
