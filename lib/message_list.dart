@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:email_app/message.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class MessageList extends StatefulWidget {
   final String title;
@@ -13,11 +13,14 @@ class MessageList extends StatefulWidget {
 }
 
 class _MessageListState extends State<MessageList> {
-  var messages = const [];
+  List<Message> messages = [];
   Future loadMessageList() async {
+    http.Response response =
+        await http.get('http://www.mocky.io/v2/5edb09d83200006f005d2666');
+    String content = response.body;
     // here we are using async await because of late latency and it's huge for computer.
     // we are using load string from rootBundle object for making that json to string.
-    String content = await rootBundle.loadString('data/message.json');
+    // String content = await rootBundle.loadString('data/message.json');
     // and we are decoding that string data to List data by performing json.decode method.
     List collection = json.decode(content);
     List<Message> _messages =
