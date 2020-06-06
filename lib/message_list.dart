@@ -35,7 +35,12 @@ class _MessageListState extends State<MessageList> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () {},
+            onPressed: () {
+              var _messages = Message.browse();
+              setState(() {
+                messages = _messages;
+              });
+            },
           ),
         ],
       ),
