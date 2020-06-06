@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:email_app/message.dart';
+import 'package:email_app/message_compose.dart';
 import 'package:email_app/message_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -90,7 +91,12 @@ class _MessageListState extends State<MessageList> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (BuildContext context) {
+            return MessageCompose();
+          }));
+        },
       ),
     );
   }
