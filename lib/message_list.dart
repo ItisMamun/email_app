@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:email_app/message.dart';
+import 'package:email_app/message_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -74,12 +75,22 @@ class _MessageListState extends State<MessageList> {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (BuildContext context) {
+                        return MessageDetail();
+                      }));
+                    },
                   );
                 },
               );
           }
           return null; // don't know it'll work or not, progress indicator would be better, container
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
