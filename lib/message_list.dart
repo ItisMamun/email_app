@@ -89,15 +89,7 @@ class _MessageListState extends State<MessageList> {
           return null; // don't know it'll work or not, progress indicator would be better, container
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (BuildContext context) {
-            return MessageCompose();
-          }));
-        },
-      ),
+      floatingActionButton: MessageCompose(),
     );
   }
 }
